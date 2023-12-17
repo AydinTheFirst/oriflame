@@ -1,5 +1,6 @@
 import { Footer } from "flowbite-react";
 import { BsDribbble, BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
+
 export const Foot = () => {
   return (
     <Footer container className="border-t">

@@ -1,7 +1,6 @@
 import { Alert, Navbar } from "flowbite-react";
 import { useEffect } from "react";
 
-import { AvatarBox } from "./Avatar";
 import { pages, socials } from "../utils/Contants";
 
 export const NavbarComponent = () => {
@@ -25,9 +24,6 @@ export const NavbarComponent = () => {
           </Navbar.Brand>
 
           <div className="flex md:order-2 gap-1 ms-1">
-            <div className="hidden">
-              <AvatarBox />
-            </div>
             <Navbar.Toggle />
           </div>
 
