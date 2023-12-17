@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bs-cyan: #29c7d7;
+  --bs-orange: #f98d38;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+label {
+  user-select: none;
+}
+
+.colored {
+  background: linear-gradient(to right, var(--bs-cyan), var(--bs-orange));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
