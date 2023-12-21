@@ -1,6 +1,7 @@
-import { Card, Rating } from "flowbite-react";
+import { Button, Card, Label, Rating, TextInput } from "flowbite-react";
 import { Foot } from "../components/Footer";
 import { NavbarComponent } from "../components/Navbar";
+import catalogBanner from "../assets/catalouge.png";
 
 export const App = () => {
   return (
@@ -35,6 +36,8 @@ export const App = () => {
             </div>
           </div>
         </section>
+
+        <Catalog />
 
         <section id="campaigns" className="mb-10 p-5">
           <h2 className="text-center font-bold text-4xl mb-3">
@@ -76,7 +79,7 @@ export const App = () => {
 
             {cards.map((card) => {
               return (
-                <Card className="max-w-sm">
+                <Card key={card.title} className="max-w-sm">
                   <div className="flex items-center justify-center">
                     <img src={card.img} alt={card.title} className="rounded" />
                   </div>
@@ -92,10 +95,73 @@ export const App = () => {
             })}
           </div>
         </section>
+
+        <Form />
       </main>
 
       <Foot />
     </>
+  );
+};
+
+const Form = () => {
+  return (
+    <>
+      <h1 className="text-xl font-bold text-center mb-5">Bize katılın!</h1>
+
+      <div className="flex justify-center mb-10">
+        <form className="flex max-w-md flex-col gap-4">
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="email1" value="Your email" />
+            </div>
+            <TextInput
+              id="email1"
+              type="email"
+              placeholder="name@flowbite.com"
+              required
+            />
+          </div>
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="password1" value="Your password" />
+            </div>
+            <TextInput id="password1" type="password" required />
+          </div>
+          <Button type="submit">Submit</Button>
+        </form>
+      </div>
+    </>
+  );
+};
+const Catalog = () => {
+  const data = {
+    title: "E-Kataloğa aşğıdaki linkten ulaşabilirsiniz",
+    href: "https://tr.oriflame.com/products/digital-catalogue-current/",
+  };
+  return (
+    <section className="p-5 flex justify-center">
+      <div>
+        <div className="flex justify-center pb-3">
+          <span className="text-xl font-bold">{data.title}</span>
+        </div>
+        <div className="flex justify-center">
+          <Card
+            className="rounded flex justify-center items-center p-5"
+            renderImage={() => (
+              <img src={catalogBanner} width={200} alt="image" />
+            )}
+          >
+            <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              {data.title}
+            </h5>
+            <Button color="pink" href={data.href}>
+              İncele
+            </Button>
+          </Card>
+        </div>
+      </div>
+    </section>
   );
 };
 
