@@ -1,7 +1,6 @@
-import { Button, Card, Carousel, Rating } from "flowbite-react";
+import { Button, Carousel } from "flowbite-react";
 import { Foot } from "../components/Footer";
 import { NavbarComponent } from "../components/Navbar";
-import catalogBanner from "../assets/catalouge.png";
 
 import slide1 from "../assets/slide1.jpeg";
 import slide2 from "../assets/slide2.jpeg";
@@ -128,37 +127,6 @@ export const App = () => {
       <Wp />
       <Foot />
     </>
-  );
-};
-
-const Catalog = () => {
-  const data = {
-    title: "E-Kataloğa aşğıdaki linkten ulaşabilirsiniz",
-    href: "https://tr.oriflame.com/products/digital-catalogue-current/",
-  };
-  return (
-    <section className="p-5 flex justify-center">
-      <div>
-        <div className="flex justify-center pb-3">
-          <span className="text-xl font-bold">{data.title}</span>
-        </div>
-        <div className="flex justify-center">
-          <Card
-            className="rounded flex justify-center items-center p-5"
-            renderImage={() => (
-              <img src={catalogBanner} width={200} alt="image" />
-            )}
-          >
-            <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {data.title}
-            </h5>
-            <Button color="pink" href={data.href}>
-              İncele
-            </Button>
-          </Card>
-        </div>
-      </div>
-    </section>
   );
 };
 
