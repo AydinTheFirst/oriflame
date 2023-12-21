@@ -1,10 +1,12 @@
 import {
   FaHome,
-  FaUsers,
   FaInstagram,
   FaArrowCircleRight,
   FaTags,
 } from "react-icons/fa";
+
+export const registerLink =
+  "https://tr.oriflame.com/business-opportunity/become-consultant?potentialSponsor=1590684";
 
 export const pages = [
   {
@@ -18,13 +20,8 @@ export const pages = [
     icon: FaTags,
   },
   {
-    name: "Biz Kimiz?",
-    href: "/about",
-    icon: FaUsers,
-  },
-  {
     name: "Bize Katıl",
-    href: "/about",
+    href: "https://tr.oriflame.com/business-opportunity/become-consultant?potentialSponsor=1590684",
     icon: FaArrowCircleRight,
   },
 ];
