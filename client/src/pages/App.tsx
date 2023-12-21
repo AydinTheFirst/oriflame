@@ -1,14 +1,26 @@
-import { Button, Card, Label, Rating, TextInput } from "flowbite-react";
+import {
+  Button,
+  Card,
+  Datepicker,
+  Label,
+  Radio,
+  Rating,
+  Select,
+  TextInput,
+} from "flowbite-react";
 import { Foot } from "../components/Footer";
 import { NavbarComponent } from "../components/Navbar";
 import catalogBanner from "../assets/catalouge.png";
+import { useState } from "react";
+import { rest } from "../utils/REST";
+import { toast } from "../utils/toast";
 
 export const App = () => {
   return (
     <>
       <NavbarComponent />
 
-      <main className="container mt-5 dark:text-white min-h-[100vh]">
+      <main className="container mt-5 dark:text-white">
         <section className="h-[100vh]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex justify-center items-center p-5">
@@ -39,60 +51,66 @@ export const App = () => {
 
         <Catalog />
 
-        <section id="campaigns" className="mb-10 p-5">
+        <section id="campaigns" className="my-10">
           <h2 className="text-center font-bold text-4xl mb-3">
             Kampanyalı Ürünler
           </h2>
 
-          <div className="flex flex-wrap justify-center gap-5">
-            <Card
-              className="max-w-sm"
-              imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-              imgSrc="https://media-afr-cdn.oriflame.com/contentImage?externalMediaId=fee4bdd6-1684-4ec9-a84d-8d5cb8a0c298&name=18755835_1&inputFormat=jpg"
-            >
-              <a href="#">
-                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  NEMLİ VE YUMUŞAK ELLERE KAVUŞUN!
-                </h5>
-              </a>
-              <div className="mb-5 mt-2.5 flex items-center">
-                <Rating>
-                  <Rating.Star />
-                  <Rating.Star />
-                  <Rating.Star />
-                  <Rating.Star />
-                  <Rating.Star />
-                </Rating>
-                <span className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
-                  5.0
-                </span>
-              </div>
-              <div className="flex items-center justify-between">
-                <a
-                  href="#"
-                  className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-                >
-                  indirimli Al!
-                </a>
-              </div>
-            </Card>
-
-            {cards.map((card) => {
-              return (
-                <Card key={card.title} className="max-w-sm">
-                  <div className="flex items-center justify-center">
-                    <img src={card.img} alt={card.title} className="rounded" />
-                  </div>
-
-                  <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    {card.title}
+          <div className="flex mx-auto">
+            <div className="flex flex-wrap justify-center gap-5">
+              <Card
+                className="max-w-sm"
+                imgAlt="image"
+                imgSrc="https://media-afr-cdn.oriflame.com/contentImage?externalMediaId=fee4bdd6-1684-4ec9-a84d-8d5cb8a0c298&name=18755835_1&inputFormat=jpg"
+              >
+                <a href="#">
+                  <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    NEMLİ VE YUMUŞAK ELLERE KAVUŞUN!
                   </h5>
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
-                    {card.description}
-                  </p>
-                </Card>
-              );
-            })}
+                </a>
+                <div className="mb-5 mt-2.5 flex items-center">
+                  <Rating>
+                    <Rating.Star />
+                    <Rating.Star />
+                    <Rating.Star />
+                    <Rating.Star />
+                    <Rating.Star />
+                  </Rating>
+                  <span className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
+                    5.0
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <a
+                    href="#"
+                    className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+                  >
+                    indirimli Al!
+                  </a>
+                </div>
+              </Card>
+
+              {cards.map((card) => {
+                return (
+                  <Card key={card.title} className="max-w-sm bg-slate-100">
+                    <div className="flex items-center justify-center">
+                      <img
+                        src={card.img}
+                        alt={card.title}
+                        className="rounded"
+                      />
+                    </div>
+
+                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      {card.title}
+                    </h5>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                      {card.description}
+                    </p>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -105,30 +123,143 @@ export const App = () => {
 };
 
 const Form = () => {
+  const [contact, setContact] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const data = new FormData(e.currentTarget);
+
+    for (let [key, value] of data.entries()) {
+      console.log(key, value);
+    }
+
+    const res = await rest.post("/form", data);
+
+    if (!res.ok) return rest.error(res);
+
+    toast({
+      title: "Başarılı",
+      message: "Kaydınız başarıyla alındı.",
+    });
+  };
+
   return (
     <>
       <h1 className="text-xl font-bold text-center mb-5">Bize katılın!</h1>
 
-      <div className="flex justify-center mb-10">
-        <form className="flex max-w-md flex-col gap-4">
-          <div>
-            <div className="mb-2 block">
-              <Label htmlFor="email1" value="Your email" />
+      <div className="flex justify-center mb-10 p-4">
+        <form onSubmit={handleSubmit}>
+          <div className="flex flex-wrap gap-5">
+            <div className="flex flex-col gap-3">
+              Kişisel Bilgiler
+              <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="email" value="Emailiniz" />
+                </div>
+                <TextInput
+                  type="email"
+                  name="email"
+                  placeholder="name@example.com"
+                  required
+                />
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label value="Adınız ve Soyadınız" />
+                </div>
+                <TextInput
+                  type="text"
+                  name="name"
+                  placeholder="Zeynep Uzuner"
+                  required
+                />
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label value="T.C. Kimlik Numarası" />
+                </div>
+                <TextInput
+                  type="number"
+                  name="id"
+                  placeholder="12345678910"
+                  required
+                />
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label value="İletişim Numaranız" />
+                </div>
+                <TextInput
+                  type="number"
+                  name="number"
+                  placeholder="05555555555"
+                  required
+                />
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="countries" value="Cinsiyetiniz" />
+                </div>
+                <Select id="countries" name="gender" required>
+                  <option value={""}>Lütfen Seçiniz</option>
+                  <option value={"male"}>Erkek</option>
+                  <option value={"female"}>Kadın</option>
+                </Select>
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="countries" value="Doğum Tarihiniz" />
+                </div>
+                <Datepicker name="dateOfBirth" />
+              </div>
             </div>
-            <TextInput
-              id="email1"
-              type="email"
-              placeholder="name@flowbite.com"
-              required
-            />
-          </div>
-          <div>
-            <div className="mb-2 block">
-              <Label htmlFor="password1" value="Your password" />
+
+            <div className="flex flex-col gap-3">
+              Adres Bilgileri
+              <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="email" value="Şehir" />
+                </div>
+                <TextInput
+                  type="text"
+                  name="city"
+                  placeholder="İstanbul"
+                  required
+                />
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label value="İlçe" />
+                </div>
+                <TextInput
+                  type="text"
+                  name="state"
+                  placeholder="Başakşehir"
+                  required
+                />
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label
+                    htmlFor="contact"
+                    value="Tercih edilen iletişim yöntemi"
+                  />
+                </div>
+                <Select id="contact" name="contact" required>
+                  <option value={""}>Lütfen Seçiniz</option>
+                  <option value={"sms"}>SMS</option>
+                  <option value={"email"}>Email</option>
+                </Select>
+              </div>
             </div>
-            <TextInput id="password1" type="password" required />
           </div>
-          <Button type="submit">Submit</Button>
+
+          <div className="mt-5">
+            <Button type="submit" className="w-full">
+              Kayıt Ol
+            </Button>
+          </div>
         </form>
       </div>
     </>

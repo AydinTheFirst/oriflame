@@ -14,10 +14,6 @@ import { rest } from "../utils/REST";
 import { toast } from "../utils/toast";
 
 export const Login = () => {
-  const [isLogin, setLogin] = useState(false);
-
-  useEffect(() => {}, [isLogin]);
-
   return (
     <div
       style={{ height: "100vh" }}
@@ -35,19 +31,9 @@ export const Login = () => {
             Fristroop Development
           </span>
           <hr className="m-3" />
-
-          <div className="flex justify-center gap-3 dark:text-white">
-            <label htmlFor="switch">Login</label>
-            <ToggleSwitch
-              id="switch"
-              checked={isLogin}
-              onChange={() => setLogin(!isLogin)}
-            />
-            <label htmlFor="switch">Register</label>
-          </div>
         </div>
 
-        <div className="mt-5">{!isLogin ? <Base /> : <Register />}</div>
+        <Base />
       </div>
     </div>
   );
@@ -63,7 +49,7 @@ const Base = () => {
   useEffect(() => {
     const fetch = async () => {
       const res = await rest.get(rest.routes.Auth.Me, {});
-      if (res.ok) return location.replace("/");
+      if (res.ok) return location.replace("/dashboard");
     };
     if (localStorage.getItem("token")) fetch();
   }, []);
@@ -81,7 +67,7 @@ const Base = () => {
 
     rest.setToken(res.data.token);
     localStorage.setItem("token", res.data.token);
-    location.replace(redirectTo || "/");
+    location.replace(redirectTo || "/dashboard");
   };
 
   return (
