@@ -1,10 +1,13 @@
-import { Button, Carousel } from "flowbite-react";
+import { Button, Card, Carousel } from "flowbite-react";
 import { Foot } from "../components/Footer";
 import { NavbarComponent } from "../components/Navbar";
 
 import slide1 from "../assets/slide1.jpeg";
 import slide2 from "../assets/slide2.jpeg";
 import slide3 from "../assets/slide3.jpeg";
+import catalogue from "../assets/catalogue.png";
+
+import { registerLink, whatsapp } from "../utils/Contants";
 
 const slides = [slide1, slide2, slide3];
 
@@ -123,6 +126,42 @@ export const App = () => {
             </div>
           </div>
         </section>
+
+        <hr className="my-10" />
+
+        <section className="flex justify-center">
+          <Card className="max-w-md" imgSrc={catalogue} horizontal>
+            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              Oriflame'in Online Kataloğu'na Hoş Geldiniz!
+            </h5>
+            <p className="font-normal text-gray-700 dark:text-gray-400">
+              Bu ayki kataloğumuzda kişisel bakım, makyaj, zinde yaşam ve daha
+              birçok kategoriden ürünlere harika fiyatlarla sahip olabilirsiniz.
+              Stoklar tükenmeden inceleyin, size özel avantajlardan yararlanın.
+            </p>
+            <Button
+              color="pink"
+              className="w-full"
+              href="https://tr.oriflame.com/products/digital-catalogue-current/"
+            >
+              Kataloğu incele
+            </Button>
+          </Card>
+        </section>
+
+        <hr className="my-10" />
+
+        <section className="flex justify-center">
+          <Button
+            outline
+            gradientDuoTone="cyanToBlue"
+            className="max-w-lg"
+            href={registerLink}
+          >
+            Tüm kampanyalardan yararlanmak, Oriflame'in bir parçası olmak, Tüm
+            ürünleri indirimli almak ve çok daha fazlası için hemen kayıt olun!
+          </Button>
+        </section>
       </main>
       <Wp />
       <Foot />
@@ -133,7 +172,7 @@ export const App = () => {
 const Wp = () => {
   return (
     <div className="fixed end-0 bottom-0 m-5">
-      <Button color="success">
+      <Button color="success" href={whatsapp}>
         <i className="fa-brands fa-whatsapp text-2xl"></i>
       </Button>
     </div>

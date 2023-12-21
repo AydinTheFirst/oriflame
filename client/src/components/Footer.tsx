@@ -1,5 +1,5 @@
 import { Footer } from "flowbite-react";
-import { BsDribbble, BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
+import { instagram } from "../utils/Contants";
 
 export const Foot = () => {
   return (
@@ -27,15 +27,18 @@ export const Foot = () => {
             <div>
               <Footer.Title title="Sosyal Medya" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Instagram</Footer.Link>
-                <Footer.Link href="#">Twitter</Footer.Link>
+                <Footer.Link href={instagram}>Instagram</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
               <Footer.Title title="Legal" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Gizlilik Sözleşmesi</Footer.Link>
-                <Footer.Link href="#">Kullanım Koşulları</Footer.Link>
+                <Footer.Link href="https://tr.oriflame.com/about/eu-declarations-of-conformity">
+                  AB Uygunluk Beyanları
+                </Footer.Link>
+                <Footer.Link href="https://tr.oriflame.com/press">
+                  Basın
+                </Footer.Link>
               </Footer.LinkGroup>
             </div>
           </div>
@@ -43,15 +46,9 @@ export const Foot = () => {
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between">
           <span>
-            Bu web sitesi ve içeriğine ait tüm hukuki sorumluluk 1593422 kod
-            numaralı Oriflame Bağımsız Marka Ortağı "..." aittir.
+            Bu web sitesi ve içeriğine ait tüm hukuki sorumluluk 11590684 kod
+            numaralı Oriflame Bağımsız Marka Ortağı Hasibe Tok'a aittir.
           </span>
-          <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-            <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={BsTwitter} />
-            <Footer.Icon href="#" icon={BsDribbble} />
-          </div>
         </div>
       </div>
     </Footer>
