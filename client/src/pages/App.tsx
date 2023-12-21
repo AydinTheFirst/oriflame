@@ -3,7 +3,6 @@ import {
   Card,
   Datepicker,
   Label,
-  Radio,
   Rating,
   Select,
   TextInput,
@@ -11,7 +10,6 @@ import {
 import { Foot } from "../components/Footer";
 import { NavbarComponent } from "../components/Navbar";
 import catalogBanner from "../assets/catalouge.png";
-import { useState } from "react";
 import { rest } from "../utils/REST";
 import { toast } from "../utils/toast";
 
@@ -123,14 +121,12 @@ export const App = () => {
 };
 
 const Form = () => {
-  const [contact, setContact] = useState("");
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const data = new FormData(e.currentTarget);
 
-    for (let [key, value] of data.entries()) {
+    for (const [key, value] of data.entries()) {
       console.log(key, value);
     }
 
