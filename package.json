@@ -1,19 +1,38 @@
 {
-  "name": "oriflame",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "flowbite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "install": "cd client && pnpm install && cd ../server && pnpm install",
-    "dev": "concurrently \"npm:watch-*\" \"npm run dev:client\" \"npm run dev:server\"",
-    "dev:client": "cd client && npm run dev",
-    "dev:server": "cd server && npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "serve -s dist -l 4000",
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "axios": "^1.6.5",
+    "flowbite": "^2.2.1",
+    "flowbite-react": "^0.7.2",
+    "postcss": "^8.4.33",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-router-dom": "^6.21.2",
+    "tailwindcss": "^3.4.1"
+  },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "serve": "^14.2.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11"
   }
 }
