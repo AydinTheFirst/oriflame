@@ -1,7 +1,7 @@
 import { Alert, Navbar } from "flowbite-react";
 import { useEffect } from "react";
 
-import { pages, socials } from "../utils/Contants";
+import { pages, registerLink, socials } from "../utils/Contants";
 
 export const NavbarComponent = () => {
   useEffect(() => {
@@ -47,6 +47,8 @@ export const NavbarComponent = () => {
                 <Navbar.Link
                   key={p.name}
                   href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex items-center gap-2"
                 >
                   <p.icon />
@@ -60,6 +62,8 @@ export const NavbarComponent = () => {
                 <Navbar.Link
                   key={p.name}
                   href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex items-center gap-2"
                 >
                   <p.icon />
@@ -75,7 +79,12 @@ export const NavbarComponent = () => {
           className="font-semibold backdrop-blur bg-opacity-50 rounded-0 bg-cyan-500"
           onDismiss={() => document.getElementById("alert")?.remove()}
         >
-          <a href="#joinus" className="block text-center">
+          <a
+            href={registerLink}
+            target="_blank"
+            rel="noreferrer"
+            className="block text-center"
+          >
             Oriflame'e ücretsiz kayıt olmak için buraya tıklayın!
           </a>
         </Alert>

@@ -2,14 +2,18 @@ import { Button, Card, Carousel } from "flowbite-react";
 import { Foot } from "../components/Footer";
 import { NavbarComponent } from "../components/Navbar";
 
-import slide1 from "../assets/slide1.jpeg";
-import slide2 from "../assets/slide2.jpeg";
-import slide3 from "../assets/slide3.jpeg";
+import slide1 from "../assets/2bd3ab96-e032-4931-a1ae-a1130aedef2f.jpeg";
+import slide2 from "../assets//2d8e5dbd-6e75-47d6-b482-566bed7f9fe9.jpeg";
+import slide3 from "../assets/58d8b210-81c8-4365-a0ed-541bd156b7be.jpeg";
+import slide4 from "../assets/bc740b63-c10c-4f46-835c-e23b6e9de357.jpeg";
+import slide5 from "../assets/bdd3da24-a17e-40b0-aaf6-414bff7e483a.jpeg";
+import slide6 from "../assets/e3652056-c4da-4051-99c8-aeb88b869c57.jpeg";
+
 import catalogue from "../assets/catalogue.png";
 
 import { registerLink, whatsapp } from "../utils/Contants";
 
-const slides = [slide1, slide2, slide3];
+const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
 
 const brands = [
   "https://media-afr-cdn.oriflame.com/contentImage?externalMediaId=f1f22cb9-9d9a-4f53-b303-a8bf7422d670&name=novage&inputFormat=jpg&imageFormat=Jpeg&w=200&bc=%23f5f5f5&ib=%23f5f5f5&q=80",
@@ -33,7 +37,7 @@ export const App = () => {
       <NavbarComponent />
 
       <main className="container dark:text-white p-5">
-        <section className="aspect-video max-h-[500px] flex mx-auto">
+        <section className="aspect-video max-h-[500px] flex mx-auto mt-10">
           <Carousel>
             {slides.map((slide) => (
               <img
@@ -143,6 +147,8 @@ export const App = () => {
               color="pink"
               className="w-full"
               href="https://tr.oriflame.com/products/digital-catalogue-current/"
+              target="_blank"
+              rel="noreferrer"
             >
               Kataloğu incele
             </Button>
@@ -157,6 +163,8 @@ export const App = () => {
             gradientDuoTone="cyanToBlue"
             className="max-w-lg"
             href={registerLink}
+            target="_blank"
+            rel="noreferrer"
           >
             Tüm kampanyalardan yararlanmak, Oriflame'in bir parçası olmak, Tüm
             ürünleri indirimli almak ve çok daha fazlası için hemen kayıt olun!

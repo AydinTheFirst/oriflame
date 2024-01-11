@@ -2,6 +2,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./styles/index.css";
+import "./styles/bs.css";
+
 import { ToastBox } from "./components/Toast";
 
 import { App } from "./pages/App";
