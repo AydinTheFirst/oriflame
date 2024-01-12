@@ -54,9 +54,9 @@ export const App = () => {
 
         <section className="flex justify-center items-center gap-10 flex-wrap">
           <div className="max-w-md text-center flex flex-col gap-4">
-            <span className="text-4xl font-semibold">
+            <h1 className="text-4xl font-semibold">
               İsveç'ten Gelen Güzellik.
-            </span>
+            </h1>
             <p className="text-sm">
               Bizler İsveçliyiz ve farklı, bütünsel bir güzellik görüşüne
               sahibiz. Bizim için sadece nasıl göründüğünüz değil, aynı zamanda
@@ -80,7 +80,7 @@ export const App = () => {
 
         <section className="flex justify-center">
           <div className="text-center flex flex-col gap-4">
-            <span className="text-3xl">Başlıca Markalarımız</span>
+            <h1 className="text-3xl">Başlıca Markalarımız</h1>
             <div className="flex justify-center">
               <div className="w-[100px] border-4 rounded border-orange-500"></div>
             </div>
@@ -102,9 +102,9 @@ export const App = () => {
         <section className="flex justify-center">
           <div className="text-center flex flex-col gap-4">
             <div className="max-w-md flex mx-auto flex-col gap-3">
-              <span className="text-4xl font-semibold">
+              <h1 className="text-4xl font-semibold">
                 Yaşadığımız standartlar
-              </span>
+              </h1>
               <p className="text-sm">
                 Yolculuğumuzun başından beri, doğayı her zaman işleri nasıl
                 yaptığımızın önemli bir parçası olarak gördük. İtibarımızı
