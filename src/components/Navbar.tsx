@@ -34,7 +34,7 @@ export const NavbarComponent = () => {
             href="/"
             className="transition-all hover:-rotate-6 hover:scale-125"
           >
-            <img src="/logo.webp" alt="logo" width={180} />
+            <img src="/logo.webp" alt="logo" width={160} />
           </Navbar.Brand>
 
           <div className="flex md:order-2 gap-1 ms-1">

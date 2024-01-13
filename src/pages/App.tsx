@@ -9,9 +9,9 @@ import slide4 from "../assets/bc740b63-c10c-4f46-835c-e23b6e9de357.jpeg";
 import slide5 from "../assets/bdd3da24-a17e-40b0-aaf6-414bff7e483a.jpeg";
 import slide6 from "../assets/e3652056-c4da-4051-99c8-aeb88b869c57.jpeg";
 
-import catalogue from "../assets/catalogue.png";
-
 import { registerLink, whatsapp } from "../utils/Contants";
+const catalogue =
+  "https://cdn.ipaper.io/iPaper/Papers/d95bc5aa-b03b-45dc-82b8-0c5fa8213219/Pages/1/Normal.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uaXBhcGVyLmlvL2lQYXBlci9QYXBlcnMvZDk1YmM1YWEtYjAzYi00NWRjLTgyYjgtMGM1ZmE4MjEzMjE5L1BhZ2VzLyoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3MDUyMzU4NTZ9fX1dfQ__&Signature=BoO~syJuCOtm7PCK-OyPRHIFCqRMGIY~cmlzNyFJVw1SpCrnj1hErtS2S1TlPWjDNQJcxDml3czNG1Ts5d14Kx~UGTRBmxt1MnZqckf1AP8-cgZBDnHrUbd-yyKO6Cll4StH-TRdPQQoUfuYgJnzLY84AIoM3M-SfPNpCeBZIYo_&Key-Pair-Id=APKAIPGQN6BDBMBZ2LCA";
 
 const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
 
@@ -37,7 +37,10 @@ export const App = () => {
       <NavbarComponent />
 
       <main className="container dark:text-white p-5">
-        <section className="aspect-video max-h-[500px] flex mx-auto mt-10">
+        <section
+          className=" aspect-video
+         max-h-[500px] flex mx-auto mt-10"
+        >
           <Carousel>
             {slides.map((slide) => (
               <img
