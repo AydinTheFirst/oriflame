@@ -2,18 +2,13 @@ import { Button, Card, Carousel } from "flowbite-react";
 import { Foot } from "../components/Footer";
 import { NavbarComponent } from "../components/Navbar";
 
-import slide1 from "../assets/2bd3ab96-e032-4931-a1ae-a1130aedef2f.jpeg";
-import slide2 from "../assets//2d8e5dbd-6e75-47d6-b482-566bed7f9fe9.jpeg";
-import slide3 from "../assets/58d8b210-81c8-4365-a0ed-541bd156b7be.jpeg";
-import slide4 from "../assets/bc740b63-c10c-4f46-835c-e23b6e9de357.jpeg";
-import slide5 from "../assets/bdd3da24-a17e-40b0-aaf6-414bff7e483a.jpeg";
-import slide6 from "../assets/e3652056-c4da-4051-99c8-aeb88b869c57.jpeg";
+import slide1 from "../assets/58d8b210-81c8-4365-a0ed-541bd156b7be.jpeg";
+import slide2 from "../assets/2d8e5dbd-6e75-47d6-b482-566bed7f9fe9.jpeg";
+import slide3 from "../assets/bc740b63-c10c-4f46-835c-e23b6e9de357.jpeg";
 
 import { registerLink, whatsapp } from "../utils/Contants";
-const catalogue =
-  "https://cdn.ipaper.io/iPaper/Papers/d95bc5aa-b03b-45dc-82b8-0c5fa8213219/Pages/1/Normal.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uaXBhcGVyLmlvL2lQYXBlci9QYXBlcnMvZDk1YmM1YWEtYjAzYi00NWRjLTgyYjgtMGM1ZmE4MjEzMjE5L1BhZ2VzLyoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3MDUyMzU4NTZ9fX1dfQ__&Signature=BoO~syJuCOtm7PCK-OyPRHIFCqRMGIY~cmlzNyFJVw1SpCrnj1hErtS2S1TlPWjDNQJcxDml3czNG1Ts5d14Kx~UGTRBmxt1MnZqckf1AP8-cgZBDnHrUbd-yyKO6Cll4StH-TRdPQQoUfuYgJnzLY84AIoM3M-SfPNpCeBZIYo_&Key-Pair-Id=APKAIPGQN6BDBMBZ2LCA";
-
-const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
+import catalogue from "../assets/catalogue.png";
+const slides = [slide1, slide2, slide3];
 
 const brands = [
   "https://media-afr-cdn.oriflame.com/contentImage?externalMediaId=f1f22cb9-9d9a-4f53-b303-a8bf7422d670&name=novage&inputFormat=jpg&imageFormat=Jpeg&w=200&bc=%23f5f5f5&ib=%23f5f5f5&q=80",
@@ -31,23 +26,23 @@ const standarts = [
   "https://media-afr-cdn.oriflame.com/contentImage?externalMediaId=10f7fade-e9d8-4ffa-88b8-02a433957674&name=contentimage-5-tr&inputFormat=png&w=165&bc=%23f5f5f5&ib=%23f5f5f5&q=90",
 ];
 
+import banner from "../assets/e3652056-c4da-4051-99c8-aeb88b869c57.jpeg";
+
 export const App = () => {
   return (
     <>
       <NavbarComponent />
 
       <main className="container dark:text-white p-5">
-        <section
-          className=" aspect-video
-         max-h-[500px] flex mx-auto mt-10"
-        >
+        <section className="w-full h-[300px] md:h-[500px] flex mx-auto">
           <Carousel>
-            {slides.map((slide) => (
+            {slides.map((slide, i) => (
               <img
+                key={i}
                 src={slide}
                 alt="image"
                 className="h-full"
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "contain" }}
               />
             ))}
           </Carousel>
@@ -55,11 +50,11 @@ export const App = () => {
 
         <hr className="my-10" />
 
-        <section className="flex justify-center items-center gap-10 flex-wrap">
-          <div className="max-w-md text-center flex flex-col gap-4">
-            <h1 className="text-4xl font-semibold">
+        <section className="row g-3">
+          <div className="col-md-6 flex flex-col items-center justify-center h-full">
+            <h3 className="text-4xl text-center mb-3 font-semibold">
               İsveç'ten Gelen Güzellik.
-            </h1>
+            </h3>
             <p className="text-sm">
               Bizler İsveçliyiz ve farklı, bütünsel bir güzellik görüşüne
               sahibiz. Bizim için sadece nasıl göründüğünüz değil, aynı zamanda
@@ -67,29 +62,28 @@ export const App = () => {
               Sağlıklı olmak, güzel bir cildin tadını çıkarmak, kendinizi ifade
               etmek ve eğlenmek bir yaşam biçimidir…
             </p>
+            <br />
             <div className="flex justify-center">
               <div className="w-[100px] border-4 rounded border-blue-500"></div>
             </div>
           </div>
-
-          <img
-            src="https://media-afr-cdn.oriflame.com/contentImage?externalMediaId=124d1fea-304e-4eee-a049-6495858f7183&name=18755715_1&inputFormat=jpg&w=683&bc=%23f5f5f5&ib=%23f5f5f5&q=70"
-            alt=""
-            className="rounded"
-          />
+          <div className="col-md-6 flex justify-center">
+            <img src={banner} alt="" className="rounded max-h-[400px]" />
+          </div>
         </section>
 
         <hr className="my-10" />
 
         <section className="flex justify-center">
           <div className="text-center flex flex-col gap-4">
-            <h1 className="text-3xl">Başlıca Markalarımız</h1>
+            <h3 className="text-3xl">Başlıca Markalarımız</h3>
             <div className="flex justify-center">
               <div className="w-[100px] border-4 rounded border-orange-500"></div>
             </div>
             <div className="flex flex-wrap gap-6 justify-center">
-              {brands.map((brand) => (
+              {brands.map((brand, i) => (
                 <img
+                  key={i}
                   src={brand}
                   alt="image"
                   className="rounded-full"
@@ -105,9 +99,9 @@ export const App = () => {
         <section className="flex justify-center">
           <div className="text-center flex flex-col gap-4">
             <div className="max-w-md flex mx-auto flex-col gap-3">
-              <h1 className="text-4xl font-semibold">
+              <h3 className="text-4xl font-semibold">
                 Yaşadığımız standartlar
-              </h1>
+              </h3>
               <p className="text-sm">
                 Yolculuğumuzun başından beri, doğayı her zaman işleri nasıl
                 yaptığımızın önemli bir parçası olarak gördük. İtibarımızı
@@ -122,8 +116,9 @@ export const App = () => {
             </div>
 
             <div className="flex flex-wrap gap-6 justify-center">
-              {standarts.map((brand) => (
+              {standarts.map((brand, i) => (
                 <img
+                  key={i}
                   src={brand}
                   alt="image"
                   className="rounded-full"

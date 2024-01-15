@@ -12,7 +12,7 @@ import { Login } from "./pages/Login";
 import { NotFound } from "./pages/NotFound";
 import { Dashboard } from "./pages/Dashboard";
 
-document.body.classList.add("bg-slate-50", "dark:bg-gray-900");
+document.body.classList.add("bg-slate-100", "dark:bg-gray-900");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <>

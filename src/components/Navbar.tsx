@@ -29,7 +29,7 @@ export const NavbarComponent = () => {
   return (
     <>
       <header id="header" className="fixed top-0 left-0 w-full z-10">
-        <Navbar id="navbar" className="py-5 px-10">
+        <Navbar id="navbar" className="p-5">
           <Navbar.Brand
             href="/"
             className="transition-all hover:-rotate-6 hover:scale-125"
@@ -37,10 +37,7 @@ export const NavbarComponent = () => {
             <img src="/logo.webp" alt="logo" width={160} />
           </Navbar.Brand>
 
-          <div className="flex md:order-2 gap-1 ms-1">
-            <Navbar.Toggle />
-          </div>
-
+          <Navbar.Toggle />
           <Navbar.Collapse>
             {pages.map((p) => {
               return (
@@ -56,7 +53,6 @@ export const NavbarComponent = () => {
                 </Navbar.Link>
               );
             })}
-            <div className="border"></div>
             {socials.map((p) => {
               return (
                 <Navbar.Link
@@ -85,7 +81,7 @@ export const NavbarComponent = () => {
             rel="noreferrer"
             className="block text-center"
           >
-            Oriflame'e ücretsiz kayıt olmak için buraya tıklayın!
+            <h1>Oriflame'e ücretsiz kayıt olmak için buraya tıklayın!</h1>
           </a>
         </Alert>
       </header>
