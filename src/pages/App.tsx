@@ -53,14 +53,19 @@ export const App = () => {
         <section className="row g-3">
           <div className="col-md-6 flex flex-col items-center justify-center h-full">
             <h3 className="text-4xl text-center mb-3 font-semibold">
-              İsveç'ten Gelen Güzellik.
+              Kampanyalar
             </h3>
             <p className="text-sm">
-              Bizler İsveçliyiz ve farklı, bütünsel bir güzellik görüşüne
-              sahibiz. Bizim için sadece nasıl göründüğünüz değil, aynı zamanda
-              nasıl yaşadığınız, hissettiğiniz ve davrandığınız da önemlidir.
-              Sağlıklı olmak, güzel bir cildin tadını çıkarmak, kendinizi ifade
-              etmek ve eğlenmek bir yaşam biçimidir…
+              Oriflame’e yeni katılanlara çok kazançlı bir merhaba!  💛🥰
+              <br />
+              💫 Oriflame’e katıldığınız ay 100 BP sipariş verin, 1. Adım
+              ürününe ANINDA BEDAVA sahip olun! 🥳
+              <br />
+              👉Hoş Geldiniz Programı’ndaki tüm ürünlere sahip olmak için 2. ve
+              3. aylarda da 100’er BP sipariş vermeye devam edin!
+              <br />
+              👉3 adımı da tamamlayın, 2812 TL kazanç sağlayın!  Daha fazla
+              bilgi için web sitemizi ziyaret edebilirsiniz.
             </p>
             <br />
             <div className="flex justify-center">
@@ -68,7 +73,61 @@ export const App = () => {
             </div>
           </div>
           <div className="col-md-6 flex justify-center">
-            <img src={banner} alt="" className="rounded max-h-[400px]" />
+            <img
+              src={"./kampanyalar.jpeg"}
+              alt=""
+              className="rounded max-h-[400px]"
+            />
+          </div>
+        </section>
+        <section className="row g-3">
+          <div className="col-md-6 flex flex-col items-center justify-center h-full">
+            <h3 className="text-4xl text-center mb-3 font-semibold"></h3>
+            <p className="text-sm">
+              Ocak ayına özel SINIRSIZ BONUS KAMPANYASI! 🥳
+              <br />
+              Ocak ayında yapacağınız Hoş geldiniz Programı 1. adımına giren her
+              2 yeni kişisel kaydınız için net 500 TL Sponsor Bonusu HEDİYE!!!
+            </p>
+            <br />
+            <div className="flex justify-center">
+              <div className="w-[100px] border-4 rounded border-blue-500"></div>
+            </div>
+          </div>
+          <div className="col-md-6 flex justify-center">
+            <img
+              src={"./kampanyalar3.jpeg"}
+              alt=""
+              className="rounded max-h-[400px]"
+            />
+          </div>
+        </section>
+        <section className="row g-3">
+          <div className="col-md-6 flex flex-col items-center justify-center h-full">
+            <h3 className="text-4xl text-center mb-3 font-semibold">
+              Kampanyalar
+            </h3>
+            <p className="text-sm">
+              Sadece yeni kayıtlara özel Oriflame ile Tanışma Paketi! 💁‍♀️
+              <br />
+              Oriflame’e ilk siparişini Ocak ayında veren yeni Marka
+              Ortaklarımız hiçbir koşul olmadan 1547 TL değerindeki Tanışma
+              Paketine sadece 400 TL’ye sahip olabilirler.
+              <br />
+              Hemen sipariş verin ve bu güzellik dolu paketi uygun fiyata
+              almanın tadını çıkarın.
+            </p>
+            <br />
+            <div className="flex justify-center">
+              <div className="w-[100px] border-4 rounded border-blue-500"></div>
+            </div>
+          </div>
+          <div className="col-md-6 flex justify-center">
+            <img
+              src={"./kampanyalar2.jpeg"}
+              alt=""
+              className="rounded max-h-[400px]"
+            />
           </div>
         </section>
 
