@@ -1,4 +1,3 @@
-import space from "../assets/space.png";
 import { Button } from "flowbite-react";
 
 export const NotFound = () => {
@@ -29,7 +28,7 @@ export const NotFound = () => {
 const style: React.CSSProperties = {
   height: "100vh",
   width: "100%",
-  backgroundImage: `url(${space})`,
+  backgroundImage: "url('/assests/space.png')",
   backgroundSize: "cover",
   textAlign: "center",
   textShadow: "0 0 10px black",
